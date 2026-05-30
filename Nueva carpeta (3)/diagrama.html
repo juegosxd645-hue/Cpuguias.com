@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagrama Sencillo de un Procesador</title>
+    <style>
+        :root {
+            --bg-color: #f4f7f6;
+            --cpu-bg: #2c3e50;
+            --unit-bg: #3498db;
+            --alu-bg: #e74c3c;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --border-bus: #f1c40f;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+
+        p {
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        /* Contenedor Principal de la CPU */
+        .cpu-container {
+            background-color: var(--cpu-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            display: grid;
+            grid-template-columns: repeat(2, 180px);
+            grid-gap: 25px;
+            position: relative;
+            border: 4px solid #1a252f;
+        }
+
+        /* Título interno del chip */
+        .cpu-title {
+            grid-column: span 2;
+            text-align: center;
+            color: var(--text-light);
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        /* Bloques de componentes */
+        .component {
+            padding: 20px;
+            border-radius: 8px;
+            color: var(--text-light);
+            text-align: center;
+            font-weight: 600;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .component span {
+            font-size: 11px;
+            font-weight: normal;
+            margin-top: 5px;
+            opacity: 0.9;
+        }
+
+        .uc {
+            background-color: var(--unit-bg);
+        }
+
+        .alu {
+            background-color: var(--alu-bg);
+        }
+
+        .registers {
+            background-color: #27ae60;
+        }
+
+        .cache {
+            background-color: #8e44ad;
+        }
+
+        /* Bus de datos (Líneas de conexión conceptuales) */
+        .bus-horizontal {
+            position: absolute;
+            top: 53%;
+            left: 10%;
+            width: 80%;
+            height: 6px;
+            background-color: var(--border-bus);
+            z-index: 1;
+        }
+
+        .bus-vertical-left {
+            position: absolute;
+            top: 25%;
+            left: 30%;
+            width: 6px;
+            height: 55%;
+            background-color: var(--border-bus);
+            z-index: 1;
+        }
+
+        .bus-vertical-right {
+            position: absolute;
+            top: 25%;
+            right: 30%;
+            width: 6px;
+            height: 55%;
+            background-color: var(--border-bus);
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Arquitectura Básica del Procesador</h1>
+    <p>Componentes principales de una CPU moderna simplificada.</p>
+
+    <!-- Estructura del Procesador -->
+    <div class="cpu-container">
+        <div class="cpu-title">Procesador (CPU)</div>
+        
+        <!-- Líneas de comunicación internas (Buses) -->
+        <div class="bus-horizontal"></div>
+        <div class="bus-vertical-left"></div>
+        <div class="bus-vertical-right"></div>
+
+        <!-- Bloques del Sistema -->
+        <div class="component uc">
+            Unidad de Control (UC)
+            <span>Dirige el flujo de datos</span>
+        </div>
+        
+        <div class="component alu">
+            Unidad Aritmético Lógica (ALU)
+            <span>Realiza cálculos y operaciones</span>
+        </div>
+        
+        <div class="component registers">
+            Registros
+            <span>Memoria ultra rápida temporal</span>
+        </div>
+        
+        <div class="component cache">
+            Memoria Caché
+            <span>Almacena datos frecuentes</span>
+        </div>
+    </div>
+
+</body>
+</html> 
